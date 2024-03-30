@@ -11,7 +11,7 @@ The GATK pipeline variant (I'll call it the pipeline) is run on the Arashi Linux
 4. Mutect2: this step is longer than SCMA but shorter than PoN.
 5. Aggregating MAFs: this step is short.
 
-The pipeline is run using Oliver-Cromwell, which requires installation via conda environment. In fact, the entire pipeline must be run using a conda environment. 
+The pipeline is run using Oliver-Cromwell, which requires installation via conda environment. In fact, the entire pipeline must be run using a conda environment. There is an example Jupyter Notebook in this GitHub repository that contains Python/bash code to accomplish steps 0 through 5 of the pipeline. It speeds up the process, but be vigilant in checking that the path and name variables being passed to various commands are appropriate/correct.
 
 ## Preparing Your Pipeline Repository
 The pipeline requires many folders/repositories for input and output. CRC data is more complicated than other cancer data because several fastqs are generated for a single sample/patient. Due to limited resources, this necessitates us to do the Pre-Processing in batches of 3 samples. PoN requires ALL pre-processed outputs (Normal .bam files). And Mutect2 should also be run in batches.
