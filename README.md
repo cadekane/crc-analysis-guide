@@ -24,13 +24,31 @@ Here is a depiction of the repository substructure I use, which can be trivially
 This is extremely important to get right. Preparing the input files incorrectly will lead to immense trouble/grief/confusion later down the pipeline. 
 
 ### CSV containing sample metadata
-My current method is to generate the CSV manually. In your folder of fastqs:
-- create a CSV file. I find VSCode with the RainbowCSV extension to be a good option. This in combination with excel may also be good.
-- `ls -lah` to list the files.
-- copy-paste the file-names
-- 
+I created a python script to generate this CSV.
 
-An example is included in this GitHub repository.
+#### Input:
+- path to a directory containing directories that each represent one sample (SAMPLENAME_TA or SAMPLENAME_NA). Within these inner directories should be the corresponding fastq files.
+
+An example of the parent directory whose path you would use as input:
+```
+/path/to/parent_directory
+    ├── DCR0003_NA
+    │   ├── V350083339_L01_B5GHUMxlydRAABA-525_1.fq.gz
+    │   ├── V350083339_L01_B5GHUMxlydRAABA-525_2.fq.gz
+    │   └── ...
+    ├── DCR0004_TA
+    │   ├── V350083340_L01_B5GHUMxlydRAABA-526_1.fq.gz
+    │   ├── V350083340_L01_B5GHUMxlydRAABA-526_2.fq.gz
+    │   └── ...
+    └── ...
+
+```
+
+#### Output:
+- a csv containing the necessary metadata and pathing for each sample.
+- this script is specific for CRC data because there are multiple fastqs generated for a single sample, which requires a row for each pair of fastqs.
+
+The script and an example output is included in the `preparing-input-files` directory. 
 
 ### Python Script and Config.ini
 The input files for each step are generated all at once by a Python script. You must manually create a Config.ini file with the specified information:
