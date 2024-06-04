@@ -50,7 +50,7 @@ def process_directory(sample_dir, csv_writer, sequence_date, sequence_platform, 
 def main(parent_directory, output_csv_path):
     sequence_date = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
     sequence_platform = 'ILLUMINA'  # Replace with actual platform
-    sequence_center = 'BGI'      # Replace with actual center
+    sequence_center = 'BGI'         # Replace with actual center
 
     with open(output_csv_path, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile)

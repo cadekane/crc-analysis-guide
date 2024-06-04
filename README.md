@@ -53,7 +53,6 @@ The script and an example output is included in the `preparing-input-files` dire
 ### Python Script and Config.ini
 The input files for each step are generated all at once by a Python script. You must manually create a Config.ini file with the specified information:
 - Group name
-
 - Interval file: whole genome or whole exome sequencing? This is very important to specify, and it will affect the size of your ultimate MAF file. 
 
 An example is included in this GitHub repository.
